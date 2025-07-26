@@ -1,103 +1,120 @@
-import Image from "next/image";
+'use client'
+
+import Link from "next/link";
+import {useState} from "react";
+
+
+// const StyledMain=styled.main`
+//     height: 100vh;
+//     margin: auto; 
+//     padding-top: 4%; 
+// `;
+
+// const StyledForm=styled.div`
+//     background-color: rgb(249, 220, 219); 
+//     width: 60%;
+//     border-radius: 3vw; 
+//     margin:7% auto; 
+//     padding: 1.5%; 
+//     text-align: center; 
+
+//     // creates a shadow of this object: 
+//     // first parameter is the horizontal location from object, 
+//     // second parameter is vertical location from object, 
+//     // third parameter is the blur, 
+//     // fourth parameter is the color of shadow. 
+//     // Resource: https://www.w3schools.com/css/css3_shadows_box.asp 
+//     box-shadow:0.5vw 0.5vw 0.5vw #999; 
+// `; 
+
+// const StyledLink = styled(Link)`
+//     text-align: center;
+//     margin: 5% auto;
+//     width: 17%; 
+//     background-color:rgb(228, 136, 93); 
+//     border-radius: 10vw; 
+//     padding: 1.8%;
+
+//     // change curser to pointer when it is placed on the button. 
+//     // Resource: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_buttons_animate3 
+//     cursor: pointer;
+//     box-shadow: 0.1vw 0.1vw 0.1vw #999; 
+
+//     // add the hover and active effects using "&"
+//     // Resource: https://codesandbox.io/p/sandbox/styled-components-hover-dduyd?file=%2Fsrc%2FApp.js%3A12%2C4-13%2C11 
+    
+//     /* change color of button to rgb(245, 111, 49) when the cursor hovers on the button. 
+//     Resource: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_buttons_animate3 */
+//     &:hover {
+//         background-color: rgb(245, 111, 49); 
+//     }
+
+//     /* change color of button to rgb(245, 111, 49) and move the button 0.3vh downward when the button is being clicked. 
+//     Resource: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_buttons_animate3 */
+//     &:active {
+//         background-color: rgb(245, 111, 49);
+//         transform: translateY(0.3vh);
+//     }
+// `; 
+
+// const StyledH3=styled.h3`
+//     color: rgb(230, 81, 12); 
+//     font-size: calc(2px + 3.2vh); 
+// `; 
+// const StyledPCenter=styled.p`
+//     font-size: calc(2px + 1.9vh); 
+//     margin-top: 0.6%; 
+//     margin: auto; 
+// `; 
+
+// const StyledP=styled.p`
+//     font-size: calc(2px + 1.9vh); 
+//     margin-top: 0.6%; 
+// `; 
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    const [icon, setIcon] = useState("");
+    return (
+        <main className="flex flex-col items-center min-h-screen w-[95vw] mx-auto p-4 pt-28 bg-blue-100">
+          <div className="w-full max-w-lg shadow-xl bg-white rounded-3xl ">
+            <div className="text-center">
+                    <h2 className="text-3xl font-bold p-2">Icon Finder</h2>
+                    <p className="text-neutral-500">
+                        Search for icons by entering their name
+                    </p>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+            <div>
+              <div className="py-3 px-7">
+                  <label htmlFor="icon" className="font-semibold">
+                      Icon Name
+                  </label>
+                  <div className="relative">
+                    <input
+                        id="icon"
+                        placeholder="e.g. arrow, baloon, cake"
+                        value={icon}
+                        className="border-2 w-full p-2 rounded-lg"
+                        onChange={(e) => {
+                            setIcon(e.target.value);
+                        }}
+                    />
+                  </div>
+              </div>
+
+              <div className="text-center">
+                <Link
+                    href={`/${icon}`}
+                    className="inline-block text-white bg-blue-700 hover:bg-sky-600 active:bg-sky-900 active:translate-y-[0.3vh] transform font-medium rounded-lg text-sm px-50 py-2.5 my-5"
+                >
+                    Get Icon
+                </Link>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+    );
 }
