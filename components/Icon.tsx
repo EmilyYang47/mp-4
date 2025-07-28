@@ -42,7 +42,6 @@ export default async function Icon({keyword}: { keyword: string }) {
                         {
                             iconData.imageUrlArray.map((imageUrl) =>
                                 (                                    
-                                    // <Image src={imageUrl} width={200} height={200} alt="image" key={imageUrl}/> 
                                     <img src={imageUrl} alt="image" key={imageUrl}/> 
                                     
                                 )
